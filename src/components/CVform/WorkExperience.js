@@ -10,16 +10,16 @@ class WorkExperience extends Component {
 
     render() {
         return (
-            <div className='workxperience'>
+            <div className='workexperience'>
                 <SectionTitle name='Work Experience'></SectionTitle>
                     <form> 
-                        <InputWrapper placeholder='Position' type='text' name='position' value={this.props.workexperience.position} onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='Company' type='text' name='company' value={this.props.workexperience.company} onChange={(e) => this.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='From' type='text' name='from' value={this.props.workexperience.from} onChange={(e) => this.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='To' type='text' name='to' value={this.props.workexperience.to} onChange={(e) => this.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='Description' type='text' name='description' value={this.props.workexperience.description} onChange={(e) => this.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='Position' type='text' name='position' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='Company' type='text' name='company' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='From' type='text' name='from' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='To' type='text' name='to' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='Description' type='text' name='description' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
                     </form>
-                <Button name='Add Work Experience' onClick={() => this.addWorkExperience()}></Button>
+                <Button name='Add Work Experience' onClick={this.props.addWorkExperience}></Button>
             </div>
 
         )
