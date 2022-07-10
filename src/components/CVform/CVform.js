@@ -11,9 +11,9 @@ class CVform extends Component {
     render() {
         return (
             <div className='CVform'>
-                    <PersonalInfo personalinfo={this.props.data.personalinfo} inputchange={this.props.inputchange}/>
+                    <PersonalInfo personalinfo={this.props.data.personalinfo} inputPersonalChange={(e) => this.props.inputPersonalChange(e)}/>
                     <Education/>
-                    <WorkExperience/>
+                    <WorkExperience workexperience={this.props.data.workexperience} inputWorkChange={this.props.inputWorkChange} addWorkExperience={this.props.addWorkExperience}/>
             </div>
 
         )
