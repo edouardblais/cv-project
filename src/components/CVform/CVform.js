@@ -12,7 +12,7 @@ class CVform extends Component {
         return (
             <div className='CVform'>
                     <PersonalInfo inputPersonalChange={(e) => this.props.inputPersonalChange(e)}/>
-                    <Education/>
+                    <Education inputEducationChange={(e) => this.props.inputEducationChange(e)} addDegree={this.props.addDegree}/>
                     <WorkExperience inputWorkChange={(e) => this.props.inputWorkChange(e)} addWorkExperience={this.props.addWorkExperience}/>
             </div>
 

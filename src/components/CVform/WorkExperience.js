@@ -15,8 +15,8 @@ class WorkExperience extends Component {
                     <form> 
                         <InputWrapper placeholder='Position' type='text' name='position' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
                         <InputWrapper placeholder='Company' type='text' name='company' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='From' type='text' name='from' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='To' type='text' name='to' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='From' type='text' name='workfrom' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='To' type='text' name='workto' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
                         <InputWrapper placeholder='Description' type='text' name='description' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
                     </form>
                 <Button name='Add Work Experience' onClick={this.props.addWorkExperience}></Button>
