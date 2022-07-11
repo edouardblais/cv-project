@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {styles} from '../styles/style'
 
 class Header extends Component {
     constructor() {
@@ -6,10 +7,8 @@ class Header extends Component {
     }
     render() {
         return (
-            <div className='HeaderContainer'>
-                <div className='HeaderWrapper'>
-                    <h1>CV CREATOR</h1>
-                </div>
+            <div style={styles.header}>
+                <h1>CV CREATOR</h1>
             </div>
         )
     }

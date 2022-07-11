@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SectionTitle from '../Tools/SectionTitle'
+import {styles} from '../../styles/style'
 
 class PreviewEducation extends Component {
     constructor(props) {
@@ -8,12 +9,12 @@ class PreviewEducation extends Component {
 
     render() {
         return (
-            <div className='previeweducation'>
+            <div style={styles.cvform}>
                 <SectionTitle name='Education'/>
                 <div>
                         { this.props.data.education.map((element) => {
                             return (
-                                        <div key={element.educationid}>
+                                        <div key={element.educationid} style={styles.cvform}>
                                             <div>{element.university}</div>
                                             <div>{element.degree}</div>
                                             <div>{element.city}</div>

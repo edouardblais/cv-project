@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InputWrapper from '../Tools/InputWrapper'
 import SectionTitle from '../Tools/SectionTitle'
 import Button from '../Tools/button'
+import {styles} from '../../styles/style'
 
 class WorkExperience extends Component {
     constructor(props) {
@@ -10,9 +11,9 @@ class WorkExperience extends Component {
 
     render() {
         return (
-            <div className='workexperience'>
+            <div style={styles.formsection}>
                 <SectionTitle name='Work Experience'></SectionTitle>
-                    <form> 
+                    <form  style={styles.formsection}> 
                         <InputWrapper placeholder='Position' type='text' name='position' value={this.props.data.position} onChange={(e) => this.props.inputWorkChange(e)}/>
                         <InputWrapper placeholder='Company' type='text' name='company' value={this.props.data.company} onChange={(e) => this.props.inputWorkChange(e)}/>
                         <InputWrapper placeholder='From' type='text' name='workfrom' value={this.props.data.workfrom} onChange={(e) => this.props.inputWorkChange(e)}/>
@@ -22,7 +23,7 @@ class WorkExperience extends Component {
                     <div>
                         { this.props.data.workexperience.map((element) => {
                             return (
-                                        <div key={element.workid}>
+                                        <div key={element.workid}  style={styles.formsection}>
                                             <div>{element.position}</div>
                                             <div>{element.company}</div>
                                             <div>{element.workfrom}</div>

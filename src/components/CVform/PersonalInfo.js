@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import InputWrapper from '../Tools/InputWrapper'
 import SectionTitle from '../Tools/SectionTitle'
+import {styles} from '../../styles/style'
 
 class PersonalInfo extends Component {
     constructor(props) {
@@ -9,9 +10,9 @@ class PersonalInfo extends Component {
 
     render() {
         return (
-            <div className='personalinfo'>
+            <div style={styles.formsection}>
                 <SectionTitle name='Personal Information'></SectionTitle>
-                    <form> 
+                    <form  style={styles.formsection}> 
                         <InputWrapper placeholder='First Name' type='text' name='firstname' defaultValue='' onChange={(e) => this.props.inputPersonalChange(e)}/>
                         <InputWrapper placeholder='Last Name' type='text' name='lastname' defaultValue='' onChange={(e) => this.props.inputPersonalChange(e)}/>
                         <InputWrapper placeholder='Title' type='text' name='title' defaultValue='' onChange={(e) => this.props.inputPersonalChange(e)}/>

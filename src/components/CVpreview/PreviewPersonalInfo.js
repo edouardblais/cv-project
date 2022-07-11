@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SectionTitle from '../Tools/SectionTitle'
+import {styles} from '../../styles/style'
 
 class PreviewPersonalInfo extends Component {
     constructor(props) {
@@ -8,9 +9,9 @@ class PreviewPersonalInfo extends Component {
 
     render() {
         return (
-            <div className='previewpersonalinfo'>
+            <div style={styles.cvform}>
                 <SectionTitle name='Personal Information'/>
-                <div>
+                <div style={styles.cvform}>
                     <p>{this.props.data.firstname}</p>
                     <p>{this.props.data.lastname}</p>
                     <p>{this.props.data.title}</p>

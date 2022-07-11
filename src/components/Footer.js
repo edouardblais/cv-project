@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {styles} from '../styles/style'
 
 class Footer extends Component {
     constructor() {
@@ -6,10 +7,8 @@ class Footer extends Component {
     }
     render() {
         return (
-            <div className='FooterContainer'>
-                <div className='FooterWrapper'>
-                    <h3>Created with love, by Ed</h3>
-                </div>
+            <div style={styles.footer}>
+                <p>Created with love, by Ed</p>
             </div>
         )
     }

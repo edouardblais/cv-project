@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CVform from './CVform/CVform'
 import CVpreview from './CVpreview/CVpreview'
 import uniqid from 'uniqid'
+import {styles} from '../styles/style'
 
 class Main extends Component {
     constructor(props) {
@@ -123,7 +124,7 @@ class Main extends Component {
 
     render() {
         return (
-            <div className='MainContainer'>
+            <div style={styles.main}>
                 <CVform 
                     data={this.state}
                     inputPersonalChange={(e) => this.inputPersonalChange(e)}

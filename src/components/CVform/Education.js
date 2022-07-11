@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InputWrapper from '../Tools/InputWrapper'
 import SectionTitle from '../Tools/SectionTitle'
 import Button from '../Tools/button'
+import {styles} from '../../styles/style'
 
 class Education extends Component {
     constructor(props) {
@@ -11,9 +12,9 @@ class Education extends Component {
     render() {
 
         return (
-            <div className='education'>
+            <div style={styles.formsection}>
                 <SectionTitle name='Education'></SectionTitle>
-                    <form> 
+                    <form  style={styles.formsection}> 
                         <InputWrapper placeholder='University' type='text' name='university' value={this.props.data.university} onChange={(e) => this.props.inputEducationChange(e)}/>
                         <InputWrapper placeholder='Degree' type='text' name='degree' value={this.props.data.degree} onChange={(e) => this.props.inputEducationChange(e)}/>
                         <InputWrapper placeholder='City' type='text' name='city' value={this.props.data.city} onChange={(e) => this.props.inputEducationChange(e)}/>
@@ -23,7 +24,7 @@ class Education extends Component {
                     <div>
                         { this.props.data.education.map((element) => {
                             return (
-                                        <div key={element.educationid}>
+                                        <div key={element.educationid}  style={styles.formsection}>
                                             <div>{element.university}</div>
                                             <div>{element.degree}</div>
                                             <div>{element.city}</div>
