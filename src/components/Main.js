@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CVform from './CVform/CVform'
+import CVpreview from './CVpreview/CVpreview'
 import uniqid from 'uniqid'
 
 class Main extends Component {
@@ -38,6 +39,8 @@ class Main extends Component {
         this.addWorkExperience = this.addWorkExperience.bind(this);
         this.inputEducationChange = this.inputEducationChange.bind(this);
         this.addDegree = this.addDegree.bind(this);
+        this.deleteDegree = this.deleteDegree.bind(this);
+        this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
     }
 
     inputPersonalChange(e) {
@@ -75,6 +78,13 @@ class Main extends Component {
         })
     }
 
+    deleteWorkExperience(e) {
+        const newwork = this.state.workexperience.filter((element) => {
+            return e.target.id !== element.workid
+        })
+        this.setState({workexperience: newwork})
+    }
+
     inputEducationChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
@@ -104,6 +114,13 @@ class Main extends Component {
         })
     }
 
+    deleteDegree(e) {
+        const neweducation = this.state.education.filter((element) => {
+            return e.target.id !== element.educationid
+        })
+        this.setState({education: neweducation})
+    }
+
     render() {
         return (
             <div className='MainContainer'>
@@ -112,9 +129,12 @@ class Main extends Component {
                     inputPersonalChange={(e) => this.inputPersonalChange(e)}
                     inputWorkChange={(e) => this.inputWorkChange(e)}
                     addWorkExperience={this.addWorkExperience}
+                    deleteWorkExperience={(e) => this.deleteWorkExperience(e)}
                     inputEducationChange={(e) => this.inputEducationChange(e)}
                     addDegree={this.addDegree}
+                    deleteDegree={(e) => this.deleteDegree(e)}
                 />
+                <CVpreview data={this.state}/>
             </div>
         )
     }

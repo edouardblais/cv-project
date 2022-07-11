@@ -29,6 +29,7 @@ class Education extends Component {
                                             <div>{element.city}</div>
                                             <div>{element.educationfrom}</div>
                                             <div>{element.educationto}</div>
+                                            <button id={element.educationid} onClick={(e) => this.props.deleteDegree(e)}>Delete</button>
                                         </div>
                             )
                         })}

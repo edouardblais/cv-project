@@ -28,6 +28,7 @@ class WorkExperience extends Component {
                                             <div>{element.workfrom}</div>
                                             <div>{element.workto}</div>
                                             <div>{element.description}</div>
+                                            <button id={element.workid} onClick={(e) => this.props.deleteWorkExperience(e)}>Delete</button>
                                         </div>
                             )
                         })}
