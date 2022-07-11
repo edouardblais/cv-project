@@ -13,12 +13,25 @@ class WorkExperience extends Component {
             <div className='workexperience'>
                 <SectionTitle name='Work Experience'></SectionTitle>
                     <form> 
-                        <InputWrapper placeholder='Position' type='text' name='position' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='Company' type='text' name='company' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='From' type='text' name='workfrom' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='To' type='text' name='workto' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
-                        <InputWrapper placeholder='Description' type='text' name='description' defaultValue='' onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='Position' type='text' name='position' value={this.props.data.position} onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='Company' type='text' name='company' value={this.props.data.company} onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='From' type='text' name='workfrom' value={this.props.data.workfrom} onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='To' type='text' name='workto' value={this.props.data.workto} onChange={(e) => this.props.inputWorkChange(e)}/>
+                        <InputWrapper placeholder='Description' type='text' name='description' value={this.props.data.description} onChange={(e) => this.props.inputWorkChange(e)}/>
                     </form>
+                    <div>
+                        { this.props.data.workexperience.map((element) => {
+                            return (
+                                        <div key={element.workid}>
+                                            <div>{element.position}</div>
+                                            <div>{element.company}</div>
+                                            <div>{element.workfrom}</div>
+                                            <div>{element.workto}</div>
+                                            <div>{element.description}</div>
+                                        </div>
+                            )
+                        })}
+                    </div>
                 <Button name='Add Work Experience' onClick={this.props.addWorkExperience}></Button>
             </div>
 

@@ -3,8 +3,8 @@ import CVform from './CVform/CVform'
 import uniqid from 'uniqid'
 
 class Main extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
 
         this.state = {
             firstname:'',
@@ -49,7 +49,7 @@ class Main extends Component {
     inputWorkChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
-            id:this.state.workid,
+            workid:uniqid(),
         })
     }
 
@@ -57,19 +57,28 @@ class Main extends Component {
         const newworkexperience = {
             position: this.state.position,
             company: this.state.company,
-            from: this.state.from,
-            to: this.state.to,
+            workfrom: this.state.workfrom,
+            workto: this.state.workto,
             description: this.state.description,
+            workid: this.state.workid,
         }
         this.setState({   
             workexperience: this.state.workexperience.concat(newworkexperience),
+        })
+        this.setState({
+            position:'',
+            company:'',
+            workfrom:'',
+            workto:'',
+            description:'',
+            workid:uniqid(),
         })
     }
 
     inputEducationChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
-            id:this.state.educationid,
+            educationid:uniqid(),
         })
     }
 
@@ -80,16 +89,26 @@ class Main extends Component {
             educationfrom: this.state.educationfrom,
             educationto: this.state.educationto,
             city: this.state.city,
+            educationid: this.state.educationid,
         }
         this.setState({   
             education: this.state.education.concat(newdegree),
         }) 
+        this.setState({
+            university:'',
+            degree:'',
+            city:'',
+            educationfrom:'',
+            educationto:'',
+            educationid:uniqid(),
+        })
     }
 
     render() {
         return (
             <div className='MainContainer'>
                 <CVform 
+                    data={this.state}
                     inputPersonalChange={(e) => this.inputPersonalChange(e)}
                     inputWorkChange={(e) => this.inputWorkChange(e)}
                     addWorkExperience={this.addWorkExperience}
