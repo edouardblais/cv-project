@@ -16,7 +16,7 @@ const main = {
     display:'flex',
     flexDirection:'row',
     padding:'3vh',
-    backgroundColor:'#fef2f2',
+    backgroundColor:'#fee2e2',
     justifyContent:'center',
     gap: '5vh',
 
@@ -67,6 +67,7 @@ const previewpersonalinfo = {
     alignItems:'center',
     maxHeight:'15vh',
     minHeight:'15vh',
+    color:'#525252',
 }
 
 const previewname = {
@@ -74,9 +75,26 @@ const previewname = {
     fontWeight:'700',
 }
 
+const previewrole = {
+    fontSize:'1.3rem',
+    fontWeight:'bold',
+    fontStyle:'italic',
+}
+
+const formtitle = {
+    fontSize:'1.3rem',
+    fontWeight:'bold',
+}
+
 const previewtitle = {
     fontSize:'1.3rem',
     fontWeight:'bold',
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'#e5e5e5',
+    color:'#525252',
 }
 
 const previewsubtitle = {
@@ -109,6 +127,20 @@ const forminput = {
     flex:'1',
 }
 
+const images = {
+    height:'2vh',
+    width:'auto',
+    filter:'invert(31%) sepia(0%) saturate(15%) hue-rotate(171deg) brightness(94%) contrast(85%)'
+}
+
+const previewpersoinfo = {
+    display:'flex',
+    flexDirection:'row',
+    flexWrap:'nowrap',
+    minWidth:'30vw',
+    justifyContent:'center',
+}
+
 const styles = {
     general:general,
     main:main,
@@ -119,12 +151,16 @@ const styles = {
     previewpersonalinfo:previewpersonalinfo,
     previewname:previewname,
     previewtitle:previewtitle,
+    previewrole:previewrole,
+    formtitle:formtitle,
     previewsubtitle:previewsubtitle,
     previewsubsubtitle:previewsubsubtitle,
     previeweducationandwork:previeweducationandwork,
     previewsubsection:previewsubsection,
     formsubsection:formsubsection,
     forminput:forminput,
+    images:images,
+    previewpersoinfo:previewpersoinfo,
 }
 
 export {styles}

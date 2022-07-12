@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SectionTitle from '../Tools/SectionTitle'
+import PreviewSectionTitle from '../Tools/PreviewSectionTitle'
 import {styles} from '../../styles/style'
 
 class PreviewEducation extends Component {
@@ -10,7 +10,7 @@ class PreviewEducation extends Component {
     render() {
         return (
             <div style={styles.formsection}>
-                <SectionTitle name='Education'/>
+                <PreviewSectionTitle style={styles.previewtitle} name='Education'/>
                 <div>
                         { this.props.data.education.map((element) => {
                             return (

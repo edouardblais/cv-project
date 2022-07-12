@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import InputWrapper from '../Tools/InputWrapper'
-import SectionTitle from '../Tools/SectionTitle'
+import FormSectionTitle from '../Tools/FormSectionTitle'
 import {styles} from '../../styles/style'
 
 class PersonalInfo extends Component {
@@ -11,7 +11,7 @@ class PersonalInfo extends Component {
     render() {
         return (
             <div style={styles.formsection}>
-                <SectionTitle name='Personal Information'></SectionTitle>
+                <FormSectionTitle name='Personal Information'/>
                     <form  style={styles.formsection}> 
                         <div style={styles.formsubsection}>
                             <InputWrapper placeholder='First Name' type='text' name='firstname' defaultValue='' onChange={(e) => this.props.inputPersonalChange(e)}/>
