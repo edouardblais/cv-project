@@ -15,19 +15,22 @@ class Education extends Component {
             <div style={styles.formsection}>
                 <SectionTitle name='Education'></SectionTitle>
                     <form  style={styles.formsection}> 
-                        <InputWrapper placeholder='University' type='text' name='university' value={this.props.data.university} onChange={(e) => this.props.inputEducationChange(e)}/>
-                        <InputWrapper placeholder='Degree' type='text' name='degree' value={this.props.data.degree} onChange={(e) => this.props.inputEducationChange(e)}/>
-                        <InputWrapper placeholder='City' type='text' name='city' value={this.props.data.city} onChange={(e) => this.props.inputEducationChange(e)}/>
-                        <InputWrapper placeholder='From' type='text' name='educationfrom' value={this.props.data.educationfrom} onChange={(e) => this.props.inputEducationChange(e)}/>
-                        <InputWrapper placeholder='To' type='text' name='educationto' value={this.props.data.educationto} onChange={(e) => this.props.inputEducationChange(e)}/>
+                        <div style={styles.formsubsection}>
+                            <InputWrapper placeholder='University' type='text' name='university' value={this.props.data.university} onChange={(e) => this.props.inputEducationChange(e)}/>
+                            <InputWrapper placeholder='Degree' type='text' name='degree' value={this.props.data.degree} onChange={(e) => this.props.inputEducationChange(e)}/>
+                        </div>
+                        <div style={styles.formsubsection}>
+                            <InputWrapper placeholder='From' type='text' name='educationfrom' value={this.props.data.educationfrom} onChange={(e) => this.props.inputEducationChange(e)}/>
+                            <InputWrapper placeholder='To' type='text' name='educationto' value={this.props.data.educationto} onChange={(e) => this.props.inputEducationChange(e)}/>
+                        </div>
                     </form>
+                    <Button name='Add Degree' onClick={this.props.addDegree}></Button>
                     <div>
                         { this.props.data.education.map((element) => {
                             return (
                                         <div key={element.educationid}  style={styles.formsection}>
                                             <div>{element.university}</div>
                                             <div>{element.degree}</div>
-                                            <div>{element.city}</div>
                                             <div>{element.educationfrom}</div>
                                             <div>{element.educationto}</div>
                                             <button id={element.educationid} onClick={(e) => this.props.deleteDegree(e)}>Delete</button>
@@ -35,7 +38,6 @@ class Education extends Component {
                             )
                         })}
                     </div>
-                <Button name='Add Degree' onClick={this.props.addDegree}></Button>
             </div>
 
         )

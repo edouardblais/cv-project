@@ -27,7 +27,6 @@ class Main extends Component {
 
             university:'',
             degree:'',
-            city:'',
             educationfrom:'',
             educationto:'',
             educationid:uniqid(),
@@ -99,7 +98,6 @@ class Main extends Component {
             degree: this.state.degree,
             educationfrom: this.state.educationfrom,
             educationto: this.state.educationto,
-            city: this.state.city,
             educationid: this.state.educationid,
         }
         this.setState({   
@@ -108,7 +106,6 @@ class Main extends Component {
         this.setState({
             university:'',
             degree:'',
-            city:'',
             educationfrom:'',
             educationto:'',
             educationid:uniqid(),

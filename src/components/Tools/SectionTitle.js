@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {styles} from '../../styles/style'
 
 class SectionTitle extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class SectionTitle extends Component {
 
     render() {
         return (
-            <div>{this.props.name}</div>
+            <div style={styles.previewtitle}>{this.props.name}</div>
         )
     }
 }

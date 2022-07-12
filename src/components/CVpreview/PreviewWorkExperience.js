@@ -9,16 +9,23 @@ class PreviewWorkExperience extends Component {
 
     render() {
         return (
-            <div style={styles.cvform}>
-                <SectionTitle name='WorkExperience'/>
+            <div style={styles.formsection}>
+                <SectionTitle name='Work Experience'/>
                 <div>
                         { this.props.data.workexperience.map((element) => {
                             return (
-                                        <div key={element.workid} style={styles.cvform}>
-                                            <div>{element.position}</div>
-                                            <div>{element.company}</div>
-                                            <div>{element.workfrom}</div>
-                                            <div>{element.workto}</div>
+                                        <div key={element.workid} style={styles.previeweducationandwork}>
+                                            <div style={styles.previewsubsection}>
+                                                <div>
+                                                    <div style={styles.previewsubtitle}>{element.workfrom} - {element.workto}</div>
+                                                </div>
+                                                <div>
+                                                    <div style={styles.previewsubtitle}>{element.position}</div>
+                                                    <div style={styles.previewsubsubtitle}>{element.company}</div>
+                                                </div>
+                                                <div></div>
+                                                <div></div>
+                                            </div>
                                             <div>{element.description}</div>
                                         </div>
                             )

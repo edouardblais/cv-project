@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {styles} from '../../styles/style'
 
 class InputWrapper extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class InputWrapper extends Component {
 
     render() {
         return (
-            <input name={this.props.name} type={this.props.type} placeholder={this.props.placeholder} value={this.props.value} onChange={(e) => this.props.onChange(e)}/>
+            <input style={styles.forminput} name={this.props.name} type={this.props.type} placeholder={this.props.placeholder} value={this.props.value} onChange={(e) => this.props.onChange(e)}/>
         )
     }
 }

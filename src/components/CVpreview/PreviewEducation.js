@@ -9,17 +9,15 @@ class PreviewEducation extends Component {
 
     render() {
         return (
-            <div style={styles.cvform}>
+            <div style={styles.formsection}>
                 <SectionTitle name='Education'/>
                 <div>
                         { this.props.data.education.map((element) => {
                             return (
-                                        <div key={element.educationid} style={styles.cvform}>
-                                            <div>{element.university}</div>
-                                            <div>{element.degree}</div>
-                                            <div>{element.city}</div>
-                                            <div>{element.educationfrom}</div>
-                                            <div>{element.educationto}</div>
+                                        <div key={element.educationid} style={styles.previeweducationandwork}>
+                                            <div style={styles.previewsubtitle}>{element.university}</div>
+                                            <div style={styles.previewsubsubtitle}>{element.degree}</div>
+                                            <div style={styles.previewsubtitle}>{element.educationfrom} - {element.educationto}</div>
                                         </div>
                             )
                         })}
