@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/cv-project/static/js/main.059bfe20.js",
+    "static/media/email.svg": "/cv-project/static/media/email.0f70304de3ceafc69d47d995770d6bb3.svg",
+    "index.html": "/cv-project/index.html",
+    "static/media/phone.svg": "/cv-project/static/media/phone.0b454d6aeda1578fa2baf5718d436d7b.svg",
+    "static/media/location.svg": "/cv-project/static/media/location.8ed820373498e050ba489683231bdef4.svg",
+    "main.059bfe20.js.map": "/cv-project/static/js/main.059bfe20.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.059bfe20.js"
+  ]
+}
