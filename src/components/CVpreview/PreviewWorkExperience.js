@@ -17,16 +17,15 @@ class PreviewWorkExperience extends Component {
                                         <div key={element.workid} style={styles.previeweducationandwork}>
                                             <div style={styles.previewsubsection}>
                                                 <div>
-                                                    <div style={styles.previewsubtitle}>{element.workfrom} - {element.workto}</div>
-                                                </div>
-                                                <div>
                                                     <div style={styles.previewsubtitle}>{element.position}</div>
                                                     <div style={styles.previewsubsubtitle}>{element.company}</div>
                                                 </div>
-                                                <div></div>
-                                                <div></div>
+                                                <div style={styles.forminput}></div>
+                                                <div>
+                                                    <div style={styles.previewsubtitle}>{element.workfrom} - {element.workto}</div>
+                                                </div>
                                             </div>
-                                            <div>{element.description}</div>
+                                            <div style={styles.previewjobdescription}>{element.description}</div>
                                         </div>
                             )
                         })}

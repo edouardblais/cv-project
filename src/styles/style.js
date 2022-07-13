@@ -23,16 +23,18 @@ const main = {
 }
 
 const header = {
-    paddingLeft: '1vh',
+    paddingLeft: '6vw',
     backgroundColor:'#fecaca',
     height:'7vh',
     display:'flex',
     justifyContent:'flexStart',
     alignItems:'center',
+    textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
+    color:'white',
+    fontSize:'3vh',
 }
 
 const footer = {
-    textAlign:'center',
     fontStyle:'italic',
     backgroundColor:'#fecaca',
     height:'3vh',
@@ -114,23 +116,18 @@ const previeweducationandwork = {
 const previewsubsection = {
     display:'flex',
     flexDirection:'row',
-    justifyContent:'space-between',
+    gap:'2vh',
+    padding:'1vh',
 }
 
 const formsubsection = {
     display:'flex',
     flexDirection:'row',
-    gap:'2vh',
+    gap:'1vh',
 }
 
 const forminput = {
     flex:'1',
-}
-
-const images = {
-    height:'2vh',
-    width:'auto',
-    filter:'invert(31%) sepia(0%) saturate(15%) hue-rotate(171deg) brightness(94%) contrast(85%)'
 }
 
 const previewpersoinfo = {
@@ -139,6 +136,47 @@ const previewpersoinfo = {
     flexWrap:'nowrap',
     minWidth:'30vw',
     justifyContent:'center',
+}
+
+const previewmailandphone = {
+    display:'flex',
+    flexDirection:'row',
+    gap:'1vh',
+    justifyContent:'center',
+}
+
+const previewindivmailandphone = {
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center'
+}
+
+const previewjobdescription = {
+    paddingLeft:'1vh',
+    color:'black',
+}
+
+const images = {
+    height:'2vh',
+    width:'auto',
+    filter:'invert(31%) sepia(0%) saturate(15%) hue-rotate(171deg) brightness(94%) contrast(85%)'
+}
+
+const button = {
+    fontFamily:'Roboto, sans-serif',
+    width:'10vw',
+    fontWeight:'bold',
+    backgroundColor:'#fee2e2',
+    cursor:'pointer',
+    border:'1px solid #b91c1c',
+    color:'#b91c1c',
+}
+
+const buttoncontainer ={
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
 }
 
 const styles = {
@@ -161,6 +199,11 @@ const styles = {
     forminput:forminput,
     images:images,
     previewpersoinfo:previewpersoinfo,
+    previewjobdescription:previewjobdescription,
+    button:button,
+    buttoncontainer:buttoncontainer,
+    previewmailandphone:previewmailandphone,
+    previewindivmailandphone:previewindivmailandphone,
 }
 
 export {styles}

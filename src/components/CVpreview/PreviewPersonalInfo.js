@@ -15,7 +15,10 @@ class PreviewPersonalInfo extends Component {
                     <div style={styles.previewname}>{this.props.data.firstname} {this.props.data.lastname}</div>
                     <div style={styles.previewrole}>{this.props.data.title}</div>
                     <div style={styles.previewpersoinfo}><img src={location} alt='location' style={styles.images}/>{this.props.data.address}</div>
-                    <div style={styles.previewpersoinfo}><img src={phone} alt='phone' style={styles.images}/>{this.props.data.phonenumber}    <img src={email} alt='email' style={styles.images}/>{this.props.data.email}</div>
+                    <div style={styles.previewmailandphone}>
+                        <div style={styles.previewindivmailandphone}><img src={phone} alt='phone' style={styles.images}/>{this.props.data.phonenumber}</div>
+                        <div style={styles.previewindivmailandphone}><img src={email} alt='email' style={styles.images}/>{this.props.data.email}</div>
+                    </div>
                 </div>
         )
     }

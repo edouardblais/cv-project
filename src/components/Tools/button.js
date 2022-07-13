@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { styles } from '../../styles/style'
 
 class Button extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class Button extends Component {
 
     render() {
         return (
-            <button onClick={this.props.onClick}>{this.props.name}</button>
+            <button onClick={(e)=>this.props.onClick(e)} style={styles.button} id={this.props.id}>{this.props.name}</button>
         )
     }
 }

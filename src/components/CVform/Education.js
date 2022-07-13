@@ -24,17 +24,27 @@ class Education extends Component {
                             <InputWrapper placeholder='To' type='text' name='educationto' value={this.props.data.educationto} onChange={(e) => this.props.inputEducationChange(e)}/>
                         </div>
                     </form>
-                    <Button name='Add Degree' onClick={this.props.addDegree}></Button>
+                    <div style={styles.buttoncontainer}>
+                        <Button name='Add Degree' onClick={this.props.addDegree}/>
+                    </div>
                     <div>
                         { this.props.data.education.map((element) => {
                             return (
-                                        <div key={element.educationid}  style={styles.formsection}>
-                                            <div>{element.university}</div>
-                                            <div>{element.degree}</div>
-                                            <div>{element.educationfrom}</div>
-                                            <div>{element.educationto}</div>
-                                            <button id={element.educationid} onClick={(e) => this.props.deleteDegree(e)}>Delete</button>
-                                        </div>
+                                            <div key={element.educationid}>
+                                                <div style={styles.previewsubsection}>
+                                                    <div style={styles.previeweducationandwork}>
+                                                        <div style={styles.previewsubtitle}>{element.university}</div>
+                                                        <div style={styles.previewsubsubtitle}>{element.degree}</div>
+                                                    </div>
+                                                    <div style={styles.forminput}></div>
+                                                    <div>
+                                                        <div style={styles.previewsubtitle}>{element.educationfrom} - {element.educationto}</div>
+                                                    </div>
+                                                </div>
+                                                <div style={styles.buttoncontainer}>
+                                                    <Button name='Delete Degree' id={element.educationid} onClick={(e) => this.props.deleteDegree(e)}/>
+                                                </div>
+                                            </div>
                             )
                         })}
                     </div>

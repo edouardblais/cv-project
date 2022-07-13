@@ -26,18 +26,27 @@ class WorkExperience extends Component {
                             <InputWrapper placeholder='Description' type='text' name='description' value={this.props.data.description} onChange={(e) => this.props.inputWorkChange(e)}/>
                         </div>
                     </form>
-                <Button name='Add Work Experience' onClick={this.props.addWorkExperience}></Button>
+                <div style={styles.buttoncontainer}>
+                    <Button name='Add Work Experience' onClick={this.props.addWorkExperience}/>
+                </div>
                 <div>
                         { this.props.data.workexperience.map((element) => {
                             return (
-                                        <div key={element.workid}  style={styles.formsection}>
-                                            <div>{element.position}</div>
-                                            <div>{element.company}</div>
-                                            <div>{element.workfrom}</div>
-                                            <div>{element.workto}</div>
-                                            <div>{element.description}</div>
-                                            <button id={element.workid} onClick={(e) => this.props.deleteWorkExperience(e)}>Delete</button>
-                                        </div>
+                                            <div key={element.workid} style={styles.previeweducationandwork}>
+                                                <div style={styles.previewsubsection}>
+                                                    <div>
+                                                        <div style={styles.previewsubtitle}>{element.position}</div>
+                                                        <div style={styles.previewsubsubtitle}>{element.company}</div>
+                                                    </div>
+                                                    <div style={styles.forminput}></div>
+                                                    <div>
+                                                        <div style={styles.previewsubtitle}>{element.workfrom} - {element.workto}</div>
+                                                    </div>
+                                                </div>
+                                                <div style={styles.buttoncontainer}>
+                                                    <Button name='Delete Job' id={element.workid} onClick={(e) => this.props.deleteWorkExperience(e)}/>
+                                                </div>
+                                            </div>
                             )
                         })}
                 </div>

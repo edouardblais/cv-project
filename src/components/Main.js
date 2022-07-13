@@ -9,12 +9,12 @@ class Main extends Component {
         super(props)
 
         this.state = {
-            firstname:'',
-            lastname: '',
-            title: '',
-            address: '',
-            phonenumber: '',
-            email: '',
+            firstname:'Chris',
+            lastname: 'Sharma',
+            title: 'Profesionnal Rock Climber',
+            address: '123 Roca, Barcelona, Spain',
+            phonenumber: '(123) 456-7890',
+            email: 'chrissharma@coolmail.com',
             
             position:'',
             company:'',
@@ -23,7 +23,23 @@ class Main extends Component {
             description:'',
             workid:uniqid(),
 
-            workexperience:[],
+            workexperience:[
+                {
+                    position:'Youtube Influencer', 
+                    company:'SharmaChannel', 
+                    workfrom:'2018',
+                    workto:'present',
+                    description:'Released hundreds of trendy rock climbing videos and acquired overs 10 billions subscribers',
+                    workid:uniqid(),
+                },
+                {
+                    position:"World's Best Rock Climber", 
+                    company:'Petzl', 
+                    workfrom:'2000',
+                    workto:'2013',
+                    description:'Climbed the hardest ways up rocks without falling',
+                    workid:uniqid(),
+                }],
 
             university:'',
             degree:'',
@@ -31,7 +47,15 @@ class Main extends Component {
             educationto:'',
             educationid:uniqid(),
 
-            education:[],
+            education:[
+                {
+                    university:'University of Life',
+                    degree:'B.Sc. in Finger Strength',
+                    educationfrom:'1995',
+                    educationto:'1998', 
+                    educationid:uniqid(),
+                }
+            ],
         }
 
         this.inputPersonalChange = this.inputPersonalChange.bind(this);
