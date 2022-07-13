@@ -11,12 +11,11 @@ class CVpreview extends Component {
 
     render() {
         return (
-            <div style={styles.cvform}>
-                    <PreviewPersonalInfo data={this.props.data}/>
-                    <PreviewEducation  data={this.props.data}/>
-                    <PreviewWorkExperience  data={this.props.data}/>
-            </div>
-
+                    <div style={styles.cvform}>
+                        <PreviewPersonalInfo data={this.props.data}/>
+                        <PreviewEducation  data={this.props.data}/>
+                        <PreviewWorkExperience  data={this.props.data}/>
+                    </div>
         )
     }
 }

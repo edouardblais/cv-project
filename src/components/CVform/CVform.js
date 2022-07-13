@@ -4,6 +4,7 @@ import Education from './Education'
 import WorkExperience from './WorkExperience'
 import {styles} from '../../styles/style'
 
+
 class CVform extends Component {
     constructor(props) {
         super(props)

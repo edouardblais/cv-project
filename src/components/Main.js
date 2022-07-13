@@ -3,6 +3,8 @@ import CVform from './CVform/CVform'
 import CVpreview from './CVpreview/CVpreview'
 import uniqid from 'uniqid'
 import {styles} from '../styles/style'
+import ReactToPrint, { PrintContextConsumer } from 'react-to-print'
+import Button from './Tools/button'
 
 class Main extends Component {
     constructor(props) {
@@ -65,6 +67,7 @@ class Main extends Component {
         this.addDegree = this.addDegree.bind(this);
         this.deleteDegree = this.deleteDegree.bind(this);
         this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
+        this.reset = this.reset.bind(this);
     }
 
     inputPersonalChange(e) {
@@ -143,20 +146,63 @@ class Main extends Component {
         this.setState({education: neweducation})
     }
 
+    reset() {
+        this.setState({
+            firstname:'First',
+            lastname: 'Name',
+            title: 'Role',
+            address: '123 Street, City, Country',
+            phonenumber: '(###) ###-####',
+            email: 'youremail@somethingmail.com',
+            
+
+            position:'',
+            company:'',
+            workfrom:'',
+            workto:'',
+            description:'',
+            workid:uniqid(),
+
+            workexperience:[],
+
+            university:'',
+            degree:'',
+            educationfrom:'',
+            educationto:'',
+            educationid:uniqid(),
+
+            education:[],
+        })
+    }
+
     render() {
         return (
             <div style={styles.main}>
-                <CVform 
-                    data={this.state}
-                    inputPersonalChange={(e) => this.inputPersonalChange(e)}
-                    inputWorkChange={(e) => this.inputWorkChange(e)}
-                    addWorkExperience={this.addWorkExperience}
-                    deleteWorkExperience={(e) => this.deleteWorkExperience(e)}
-                    inputEducationChange={(e) => this.inputEducationChange(e)}
-                    addDegree={this.addDegree}
-                    deleteDegree={(e) => this.deleteDegree(e)}
-                />
-                <CVpreview data={this.state}/>
+                <div style={styles.printsection}>
+                    <CVform 
+                        data={this.state}
+                        inputPersonalChange={(e) => this.inputPersonalChange(e)}
+                        inputWorkChange={(e) => this.inputWorkChange(e)}
+                        addWorkExperience={this.addWorkExperience}
+                        deleteWorkExperience={(e) => this.deleteWorkExperience(e)}
+                        inputEducationChange={(e) => this.inputEducationChange(e)}
+                        addDegree={this.addDegree}
+                        deleteDegree={(e) => this.deleteDegree(e)}
+                    />
+                    <Button onClick={this.reset} name='Reset Resume'/>
+                </div>
+                <div style={styles.printsection}>
+                    <CVpreview data={this.state} ref={el => (this.componentRef = el)}/>
+                    <div>
+                        <ReactToPrint content={() => this.componentRef}>
+                            <PrintContextConsumer>
+                                {({ handlePrint }) => (
+                                    <Button onClick={handlePrint} name='Print Resume'></Button>
+                                )}
+                            </PrintContextConsumer>
+                        </ReactToPrint>
+                    </div>  
+                </div>    
             </div>
         )
     }

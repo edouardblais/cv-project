@@ -16,7 +16,7 @@ const main = {
     display:'flex',
     flexDirection:'row',
     padding:'3vh',
-    backgroundColor:'#fee2e2',
+    backgroundColor:'#e7e5e4',
     justifyContent:'center',
     gap: '5vh',
 
@@ -41,6 +41,8 @@ const footer = {
     justifyContent:'center',
     display:'flex',
     alignItems:'center',
+    color:'black',
+    fontWeight:'bold',
 }
 
 const cvform = {
@@ -52,6 +54,7 @@ const cvform = {
     border:'2px solid black',
     borderRadius: '5px',
     backgroundColor:'#f8fafc',
+    flex:'1',
 }
 
 const formsection = {
@@ -179,6 +182,13 @@ const buttoncontainer ={
     alignItems:'center',
 }
 
+const printsection = {
+    display:'flex',
+    flexDirection:'column',
+    gap:'2vh',
+    alignItems:'center',
+}
+
 const styles = {
     general:general,
     main:main,
@@ -204,6 +214,7 @@ const styles = {
     buttoncontainer:buttoncontainer,
     previewmailandphone:previewmailandphone,
     previewindivmailandphone:previewindivmailandphone,
+    printsection:printsection,
 }
 
 export {styles}
