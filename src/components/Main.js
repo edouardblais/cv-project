@@ -4,7 +4,7 @@ import CVform from './CVform/CVform'
 import CVpreview from './CVpreview/CVpreview'
 import uniqid from 'uniqid'
 import {styles} from '../styles/style'
-import { useReactToPrint } from 'react-to-print';
+import ReactToPrint from 'react-to-print';
 import Button from './Tools/button'
 import CVexample from './Tools/CVExample'
 
@@ -126,9 +126,6 @@ const Main = () => {
     }
     
     const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-    });
       
 
         return (
@@ -147,9 +144,12 @@ const Main = () => {
                     <Button onClick={reset} name='Reset Resume'/>
                 </div>
                 <div style={styles.printsection}>
+                    <ReactToPrint
+                        trigger={() => <Button name='Get Resume'></Button> }
+                        content={() => componentRef.current}
+                    />
                     <CVpreview cv={cv} ref={componentRef}/>
-                    <Button onClick={handlePrint} name='Get Resume'></Button> 
-                </div>    
+                </div> 
             </div>
         )
     }

@@ -5,6 +5,7 @@ import PreviewWorkExperience from './PreviewWorkExperience'
 import {styles} from '../../styles/style'
 
 const CVpreview = ({cv}) => {
+
         return (
                     <div style={styles.cvform}>
                         <PreviewPersonalInfo cv={cv}/>

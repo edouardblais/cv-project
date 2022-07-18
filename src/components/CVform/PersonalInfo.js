@@ -3,7 +3,7 @@ import InputWrapper from '../Tools/InputWrapper'
 import FormSectionTitle from '../Tools/FormSectionTitle'
 import {styles} from '../../styles/style'
 
-const PersonalInfo = (inputPersonalChange) => {
+const PersonalInfo = ({inputPersonalChange}) => {
     
         return (
             <div style={styles.formsection}>
