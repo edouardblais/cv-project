@@ -1,18 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PreviewSectionTitle from '../Tools/PreviewSectionTitle'
 import {styles} from '../../styles/style'
 
-class PreviewEducation extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const PreviewEducation = ({cv}) => {
+    
         return (
             <div style={styles.formsection}>
                 <PreviewSectionTitle style={styles.previewtitle} name='Education'/>
                 <div>
-                        { this.props.data.education.map((element) => {
+                        { cv.education.map((element) => {
                             return (
                                     <div key={element.educationid} style={styles.previewsubsection}>
                                         <div style={styles.previeweducationandwork}>
@@ -30,7 +26,6 @@ class PreviewEducation extends Component {
             </div>
 
         )
-    }
 }
 
 export default PreviewEducation

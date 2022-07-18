@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {styles} from '../../styles/style'
 
-class FormSectionTitle extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const FormSectionTitle = ({name}) => {
+    
         return (
-            <div style={styles.formtitle}>{this.props.name}</div>
+            <div style={styles.formtitle}>{name}</div>
         )
-    }
 }
 
 export default FormSectionTitle

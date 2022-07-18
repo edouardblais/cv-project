@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {styles} from '../../styles/style'
 
-class InputWrapper extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const InputWrapper = ({
+    name,
+    type,
+    placeholder,
+    value,
+    onChange,
+    }) => {
+    
         return (
-            <input style={styles.forminput} name={this.props.name} type={this.props.type} placeholder={this.props.placeholder} value={this.props.value} onChange={(e) => this.props.onChange(e)}/>
+            <input style={styles.forminput} name={name} type={type} placeholder={placeholder} value={value} onChange={onChange}/>
         )
-    }
 }
 
 export default InputWrapper

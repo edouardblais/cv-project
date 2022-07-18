@@ -1,16 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {styles} from '../../styles/style'
 
-class PreviewSectionTitle extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const PreviewSectionTitle = ({name}) => {
         return (
-            <div style={styles.previewtitle}>{this.props.name}</div>
+            <div style={styles.previewtitle}>{name}</div>
         )
-    }
 }
 
 export default PreviewSectionTitle

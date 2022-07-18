@@ -1,25 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PersonalInfo from './PersonalInfo'
 import Education from './Education'
 import WorkExperience from './WorkExperience'
 import {styles} from '../../styles/style'
 
 
-class CVform extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const CVform = ({
+    cv,
+    inputPersonalChange,
+    inputEducationChange,
+    addDegree,
+    deleteDegree,
+    inputWorkChange,
+    addWorkExperience,
+    deleteWorkExperience,
+    }) => {
+    
         return (
             <div style={styles.cvform}>
-                    <PersonalInfo inputPersonalChange={(e) => this.props.inputPersonalChange(e)}/>
-                    <Education inputEducationChange={(e) => this.props.inputEducationChange(e)} addDegree={this.props.addDegree} data={this.props.data} deleteDegree={(e) => this.props.deleteDegree(e)}/>
-                    <WorkExperience inputWorkChange={(e) => this.props.inputWorkChange(e)} addWorkExperience={this.props.addWorkExperience} data={this.props.data} deleteWorkExperience={(e) => this.props.deleteWorkExperience(e)}/>
+                    <PersonalInfo inputPersonalChange={inputPersonalChange}/>
+                    <Education inputEducationChange={inputEducationChange} addDegree={addDegree} cv={cv} deleteDegree={deleteDegree}/>
+                    <WorkExperience inputWorkChange={inputWorkChange} addWorkExperience={addWorkExperience} cv={cv} deleteWorkExperience={deleteWorkExperience}/>
             </div>
 
         )
-    }
 }
 
 export default CVform

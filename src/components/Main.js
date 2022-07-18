@@ -1,177 +1,103 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import { useRef } from 'react'
 import CVform from './CVform/CVform'
 import CVpreview from './CVpreview/CVpreview'
 import uniqid from 'uniqid'
 import {styles} from '../styles/style'
-import ReactToPrint, { PrintContextConsumer } from 'react-to-print'
+import { useReactToPrint } from 'react-to-print';
 import Button from './Tools/button'
+import CVexample from './Tools/CVExample'
 
-class Main extends Component {
-    constructor(props) {
-        super(props)
+const Main = () => {
+    
+    const [cv, setCV] = useState(CVexample)
 
-        this.state = {
-            firstname:'Chris',
-            lastname: 'Sharma',
-            title: 'Profesionnal Rock Climber',
-            address: '123 Roca Street, Barcelona, Spain',
-            phonenumber: '(123) 456-7890',
-            email: 'chrissharma@coolmail.com',
-            
-            position:'',
-            company:'',
-            workfrom:'',
-            workto:'',
-            description:'',
-            workid:uniqid(),
-
-            workexperience:[
-                {
-                    position:'Youtube Influencer', 
-                    company:'SharmaChannel', 
-                    workfrom:'2019',
-                    workto:'present',
-                    description:'Released hundreds of trendy rock climbing videos and acquired overs 10 billions subscribers',
-                    workid:uniqid(),
-                },
-                {
-                    position:'Pretty Good Professionnal Rock Climber', 
-                    company:'Evolv Bad Shoes', 
-                    workfrom:'2013',
-                    workto:'2019',
-                    description:'Climbed lots of pretty sick rocks all over this magnicifent floating cosmic ball',
-                    workid:uniqid(),
-                },
-                {
-                    position:"World's Best Rock Climber", 
-                    company:'Petzl Equipment', 
-                    workfrom:'2000',
-                    workto:'2013',
-                    description:'Climbed the hardest ways up rocks without falling',
-                    workid:uniqid(),
-                },
-                {
-                    position:"Comp Kid", 
-                    company:'Five Ten Shoes', 
-                    workfrom:'1995',
-                    workto:'2000',
-                    description:'Destroyed the plastic climbing competition scene until I got bored of it',
-                    workid:uniqid(),
-                }
-                ],
-
-            university:'',
-            degree:'',
-            educationfrom:'',
-            educationto:'',
-            educationid:uniqid(),
-
-            education:[
-                {
-                    university:'University of Life',
-                    degree:'B.Sc. in Finger Strength',
-                    educationfrom:'1997',
-                    educationto:'2000', 
-                    educationid:uniqid(),
-                },
-                {
-                    university:'Santa Cruz High School',
-                    degree:'Botanics',
-                    educationfrom:'1990',
-                    educationto:'1996', 
-                    educationid:uniqid(),
-                },
-            ],
-        }
-
-        this.inputPersonalChange = this.inputPersonalChange.bind(this);
-        this.inputWorkChange = this.inputWorkChange.bind(this);
-        this.addWorkExperience = this.addWorkExperience.bind(this);
-        this.inputEducationChange = this.inputEducationChange.bind(this);
-        this.addDegree = this.addDegree.bind(this);
-        this.deleteDegree = this.deleteDegree.bind(this);
-        this.deleteWorkExperience = this.deleteWorkExperience.bind(this);
-        this.reset = this.reset.bind(this);
-    }
-
-    inputPersonalChange(e) {
-        this.setState({
+    const inputPersonalChange = (e) => {
+        setCV((prevState) => ({
+            ...prevState,
             [e.target.name]: e.target.value,
-        })
+        }))
     }
 
-    inputWorkChange(e) {
-        this.setState({
+    const inputWorkChange = (e) => {
+        setCV((prevState) => ({
+            ...prevState,
             [e.target.name]: e.target.value,
             workid:uniqid(),
-        })
+        }))
     }
 
-    addWorkExperience() {
+    const addWorkExperience = () => {
         const newworkexperience = {
-            position: this.state.position,
-            company: this.state.company,
-            workfrom: this.state.workfrom,
-            workto: this.state.workto,
-            description: this.state.description,
-            workid: this.state.workid,
+            position: cv.position,
+            company: cv.company,
+            workfrom: cv.workfrom,
+            workto: cv.workto,
+            description: cv.description,
+            workid: cv.workid,
         }
-        this.setState({   
-            workexperience: this.state.workexperience.concat(newworkexperience),
-        })
-        this.setState({
+        setCV((prevState) => ({
+            ...prevState,  
+            workexperience: [...cv.workexperience, newworkexperience],
             position:'',
             company:'',
             workfrom:'',
             workto:'',
             description:'',
             workid:uniqid(),
-        })
+        }))
     }
 
-    deleteWorkExperience(e) {
-        const newwork = this.state.workexperience.filter((element) => {
+    const deleteWorkExperience = (e) => {
+        const newwork = cv.workexperience.filter((element) => {
             return e.target.id !== element.workid
         })
-        this.setState({workexperience: newwork})
+        setCV((prevState) => ({
+            ...prevState,  
+            workexperience: [...newwork],
+        }))
     }
 
-    inputEducationChange(e) {
-        this.setState({
+    const inputEducationChange = (e) => {
+        setCV((prevState) => ({
+            ...prevState,  
             [e.target.name]: e.target.value,
             educationid:uniqid(),
-        })
+        }))
     }
 
-    addDegree() {
+    const addDegree = () => {
         const newdegree = {
-            university: this.state.university,
-            degree: this.state.degree,
-            educationfrom: this.state.educationfrom,
-            educationto: this.state.educationto,
-            educationid: this.state.educationid,
+            university: cv.university,
+            degree: cv.degree,
+            educationfrom: cv.educationfrom,
+            educationto: cv.educationto,
+            educationid: cv.educationid,
         }
-        this.setState({   
-            education: this.state.education.concat(newdegree),
-        }) 
-        this.setState({
+        setCV((prevState) => ({
+            ...prevState,  
+            education: [...cv.education, newdegree],
             university:'',
             degree:'',
             educationfrom:'',
             educationto:'',
             educationid:uniqid(),
-        })
+        }))
     }
 
-    deleteDegree(e) {
-        const neweducation = this.state.education.filter((element) => {
+    const deleteDegree = (e) => {
+        const neweducation = cv.education.filter((element) => {
             return e.target.id !== element.educationid
         })
-        this.setState({education: neweducation})
+        setCV((prevState) => ({
+            ...prevState,  
+            education: [...neweducation]
+        }))
     }
 
-    reset() {
-        this.setState({
+    const reset = () => {
+        setCV((prevState) => ({
+            ...prevState,  
             firstname:'First',
             lastname: 'Name',
             title: 'Role',
@@ -196,40 +122,36 @@ class Main extends Component {
             educationid:uniqid(),
 
             education:[],
-        })
+        }))
     }
+    
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
+      
 
-    render() {
         return (
             <div style={styles.main}>
                 <div style={styles.printsection}>
                     <CVform 
-                        data={this.state}
-                        inputPersonalChange={(e) => this.inputPersonalChange(e)}
-                        inputWorkChange={(e) => this.inputWorkChange(e)}
-                        addWorkExperience={this.addWorkExperience}
-                        deleteWorkExperience={(e) => this.deleteWorkExperience(e)}
-                        inputEducationChange={(e) => this.inputEducationChange(e)}
-                        addDegree={this.addDegree}
-                        deleteDegree={(e) => this.deleteDegree(e)}
+                        cv={cv}
+                        inputPersonalChange={inputPersonalChange}
+                        inputWorkChange={inputWorkChange}
+                        addWorkExperience={addWorkExperience}
+                        deleteWorkExperience={deleteWorkExperience}
+                        inputEducationChange={inputEducationChange}
+                        addDegree={addDegree}
+                        deleteDegree={deleteDegree}
                     />
-                    <Button onClick={this.reset} name='Reset Resume'/>
+                    <Button onClick={reset} name='Reset Resume'/>
                 </div>
                 <div style={styles.printsection}>
-                    <CVpreview data={this.state} ref={el => (this.componentRef = el)}/>
-                    <div>
-                        <ReactToPrint content={() => this.componentRef}>
-                            <PrintContextConsumer>
-                                {({ handlePrint }) => (
-                                    <Button onClick={handlePrint} name='Get Resume'></Button>
-                                )}
-                            </PrintContextConsumer>
-                        </ReactToPrint>
-                    </div>  
+                    <CVpreview cv={cv} ref={componentRef}/>
+                    <Button onClick={handlePrint} name='Get Resume'></Button> 
                 </div>    
             </div>
         )
     }
-}
 
 export default Main

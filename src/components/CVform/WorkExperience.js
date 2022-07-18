@@ -1,36 +1,37 @@
-import React, { Component } from 'react'
+import React from 'react'
 import InputWrapper from '../Tools/InputWrapper'
 import FormSectionTitle from '../Tools/FormSectionTitle'
 import Button from '../Tools/button'
 import {styles} from '../../styles/style'
 
-class WorkExperience extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const WorkExperience = ({
+    cv,
+    inputWorkChange,
+    addWorkExperience,
+    deleteWorkExperience,
+    }) => {
+    
         return (
             <div style={styles.formsection}>
                 <FormSectionTitle name='Work Experience'/>
                     <form  style={styles.formsection}> 
                         <div style={styles.formsubsection}>
-                            <InputWrapper placeholder='Position' type='text' name='position' value={this.props.data.position} onChange={(e) => this.props.inputWorkChange(e)}/>
-                            <InputWrapper placeholder='Company' type='text' name='company' value={this.props.data.company} onChange={(e) => this.props.inputWorkChange(e)}/>
+                            <InputWrapper placeholder='Position' type='text' name='position' value={cv.position} onChange={inputWorkChange}/>
+                            <InputWrapper placeholder='Company' type='text' name='company' value={cv.company} onChange={inputWorkChange}/>
                         </div>
                         <div style={styles.formsubsection}>
-                            <InputWrapper placeholder='From' type='text' name='workfrom' value={this.props.data.workfrom} onChange={(e) => this.props.inputWorkChange(e)}/>
-                            <InputWrapper placeholder='To' type='text' name='workto' value={this.props.data.workto} onChange={(e) => this.props.inputWorkChange(e)}/>
+                            <InputWrapper placeholder='From' type='text' name='workfrom' value={cv.workfrom} onChange={inputWorkChange}/>
+                            <InputWrapper placeholder='To' type='text' name='workto' value={cv.workto} onChange={inputWorkChange}/>
                         </div>
                         <div style={styles.formsubsection}>
-                            <InputWrapper placeholder='Description' type='text' name='description' value={this.props.data.description} onChange={(e) => this.props.inputWorkChange(e)}/>
+                            <InputWrapper placeholder='Description' type='text' name='description' value={cv.description} onChange={inputWorkChange}/>
                         </div>
                     </form>
                 <div style={styles.buttoncontainer}>
-                    <Button name='Add Work Experience' onClick={this.props.addWorkExperience}/>
+                    <Button name='Add Work Experience' onClick={addWorkExperience}/>
                 </div>
                 <div>
-                        { this.props.data.workexperience.map((element) => {
+                        { cv.workexperience.map((element) => {
                             return (
                                             <div key={element.workid} style={styles.previeweducationandwork}>
                                                 <div style={styles.previewsubsection}>
@@ -44,7 +45,7 @@ class WorkExperience extends Component {
                                                     </div>
                                                 </div>
                                                 <div style={styles.buttoncontainer}>
-                                                    <Button name='Delete Job' id={element.workid} onClick={(e) => this.props.deleteWorkExperience(e)}/>
+                                                    <Button name='Delete Job' id={element.workid} onClick={deleteWorkExperience}/>
                                                 </div>
                                             </div>
                             )
@@ -53,7 +54,7 @@ class WorkExperience extends Component {
             </div>
 
         )
-    }
 }
+
 
 export default WorkExperience

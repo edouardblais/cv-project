@@ -1,23 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PreviewPersonalInfo from './PreviewPersonalInfo'
 import PreviewEducation from './PreviewEducation'
 import PreviewWorkExperience from './PreviewWorkExperience'
 import {styles} from '../../styles/style'
 
-class CVpreview extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    render() {
+const CVpreview = ({cv}) => {
         return (
                     <div style={styles.cvform}>
-                        <PreviewPersonalInfo data={this.props.data}/>
-                        <PreviewEducation  data={this.props.data}/>
-                        <PreviewWorkExperience  data={this.props.data}/>
+                        <PreviewPersonalInfo cv={cv}/>
+                        <PreviewEducation  cv={cv}/>
+                        <PreviewWorkExperience  cv={cv}/>
                     </div>
         )
-    }
 }
+
 
 export default CVpreview
