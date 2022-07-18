@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { useRef } from 'react'
 import CVform from './CVform/CVform'
 import CVpreview from './CVpreview/CVpreview'
 import uniqid from 'uniqid'
 import {styles} from '../styles/style'
-import ReactToPrint from 'react-to-print';
+import { useReactToPrint } from 'react-to-print';
 import Button from './Tools/button'
 import CVexample from './Tools/CVExample'
 
@@ -124,8 +123,11 @@ const Main = () => {
             education:[],
         }))
     }
-    
-    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+    content: () => ref.current,
+    });
+    const ref = React.createRef();
       
 
         return (
@@ -144,11 +146,8 @@ const Main = () => {
                     <Button onClick={reset} name='Reset Resume'/>
                 </div>
                 <div style={styles.printsection}>
-                    <ReactToPrint
-                        trigger={() => <Button name='Get Resume'></Button> }
-                        content={() => componentRef.current}
-                    />
-                    <CVpreview cv={cv} ref={componentRef}/>
+                    <CVpreview cv={cv} ref={ref}/>
+                    <Button onClick={handlePrint} name='Get Resume'/>
                 </div> 
             </div>
         )
