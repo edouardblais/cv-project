@@ -8,7 +8,7 @@ When everything is ready, the user can save a local PDF version of his resume.
 
 This app was my first app created with React. At first, tt was a perfect mission to familiarize myself with class components and how to use state and props with efficiency.
 This last bit proved to be the trickiest part, but it ended up making perfect sense after playing for a while with props and state while building the different functionalities and necessary objects to pass along components.
-However, in a further challenge to myself, I refactored the whole app to make its components functional, which is the actual state of the app as of now.
+However, in a further challenge to myself, I refactored the whole app to make its components functional, which is the actual state of the app.
 
 I wanted to implement a way for the user to get his local version of the final resume. I went with the "React-to-print" library to do so. 
 While it is working, there is still a problem with the formatting of the output as the content isn't proportionally adjusted when it comes to saving the previewed resume. 
