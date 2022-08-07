@@ -4,6 +4,8 @@ This is a React App that lets the user build his own resume based on a formatted
 As the user inputs his personal information, it is displayed live in its formatted version. 
 When everything is ready, the user can save a local PDF version of his resume.
 
+Check it out live: https://edouardblais.github.io/cv-project/
+
 # Under the hood
 
 This app was my first app created with React. At first, tt was a perfect mission to familiarize myself with class components and how to use state and props with efficiency.
